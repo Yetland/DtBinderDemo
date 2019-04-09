@@ -16,7 +16,7 @@ class OnItemClickRegistry() : OnItemClick() {
     /**
      * 所有observer的集合
      */
-    private var mObserverList = arrayListOf<OnItemClickObserver>()
+    private var mObserverList: MutableList<OnItemClickObserver> = arrayListOf()
 
     constructor(owner: OnItemClickOwner) : this() {
         mLifecycleOwner = WeakReference(owner)
@@ -29,15 +29,15 @@ class OnItemClickRegistry() : OnItemClick() {
         addObserver(arrayListOf(onItemClickObserver))
     }
 
-    override fun dispatchObserver(list: ArrayList<OnItemClickObserver>?) {
+    override fun dispatchObserver(list: List<OnItemClickObserver>?) {
         addObserver(list)
     }
 
-    override fun getObserver(): ArrayList<OnItemClickObserver>? {
-        return mObserverList
+    override fun getObserver(): List<OnItemClickObserver>? {
+        return mObserverList.toList()
     }
 
-    override fun addObserver(list: ArrayList<OnItemClickObserver>?) {
+    override fun addObserver(list: List<OnItemClickObserver>?) {
         list?.forEach { after ->
             if (!mObserverList.contains(after)) {
                 mObserverList.add(after)

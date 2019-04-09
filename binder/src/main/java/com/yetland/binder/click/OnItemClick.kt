@@ -7,10 +7,10 @@ package com.yetland.binder.click
  */
 abstract class OnItemClick {
     abstract fun addObserver(onItemClickObserver: OnItemClickObserver)
-    abstract fun addObserver(list: ArrayList<OnItemClickObserver>?)
-    abstract fun getObserver(): ArrayList<OnItemClickObserver>?
+    abstract fun addObserver(list: List<OnItemClickObserver>?)
+    abstract fun getObserver(): List<OnItemClickObserver>?
     abstract fun dispatchObserver(onItemClickObserver: OnItemClickObserver)
-    abstract fun dispatchObserver(list: ArrayList<OnItemClickObserver>?)
+    abstract fun dispatchObserver(list: List<OnItemClickObserver>?)
     abstract fun removeObserver(onItemClickObserver: OnItemClickObserver)
     abstract fun removeAll()
 }
